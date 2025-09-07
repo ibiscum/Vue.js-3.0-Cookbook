@@ -1,15 +1,7 @@
 {
-  "name": "2-1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^4.1.2"
+  "name": "2_1",
+  "packageManager": "yarn@4.9.4",
+  "devDependencies": {
+    "typescript": "^5.9.2"
   }
 }
