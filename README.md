@@ -1,6 +1,5 @@
 
 
-
 # Vue.js 3 Cookbook
 
 <a href="https://amzn.to/2LlqMUU"><img src="https://static.packt-cdn.com/products/9781838826222/cover/smaller" alt="Vue.js 3 Cookbook" height="256px" align="right"></a>

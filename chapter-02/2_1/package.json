@@ -1,7 +1,0 @@
-{
-  "name": "2_1",
-  "packageManager": "yarn@4.9.4",
-  "devDependencies": {
-    "typescript": "^5.9.2"
-  }
-}
