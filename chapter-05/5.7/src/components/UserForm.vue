@@ -4,7 +4,8 @@
       vs-type="flex"
       vs-justify="left"
       vs-align="left"
-      vs-w="6">
+      vs-w="6"
+    >
       <vs-input
         v-model="tmpForm.name"
         :disabled="disabled"
@@ -17,7 +18,8 @@
       vs-type="flex"
       vs-justify="left"
       vs-align="left"
-      vs-w="6">
+      vs-w="6"
+    >
       <vs-input
         v-model="tmpForm.email"
         :disabled="disabled"
@@ -30,7 +32,8 @@
       vs-type="flex"
       vs-justify="left"
       vs-align="left"
-      vs-w="6">
+      vs-w="6"
+    >
       <vs-input
         v-model="tmpForm.country"
         :disabled="disabled"
@@ -43,7 +46,8 @@
       vs-type="flex"
       vs-justify="left"
       vs-align="left"
-      vs-w="6">
+      vs-w="6"
+    >
       <vs-input
         v-model="tmpForm.phone"
         :disabled="disabled"
@@ -56,7 +60,8 @@
       vs-type="flex"
       vs-justify="left"
       vs-align="left"
-      vs-w="6">
+      vs-w="6"
+    >
       <vs-input
         v-model="tmpForm.birthday"
         :disabled="disabled"
@@ -83,6 +88,7 @@
         default: false,
       }
     },
+emits: ['input'],
     data: () => ({
       tmpForm: {},
     }),

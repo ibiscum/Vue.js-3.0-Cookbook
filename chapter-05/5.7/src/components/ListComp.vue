@@ -2,7 +2,7 @@
   <vs-card
     style="margin: 20px;"
   >
-    <template slot="header">
+    <template #header>
       <h3>
         Users
       </h3>
@@ -12,7 +12,8 @@
         vs-type="flex"
         vs-justify="left"
         vs-align="left"
-        vs-w="12">
+        vs-w="12"
+      >
         <vs-table
           :data="userList"
           search
@@ -21,7 +22,7 @@
           max-items="10"
           style="width: 100%; padding: 20px;"
         >
-          <template slot="thead">
+          <template #thead>
             <vs-th sort-key="id">
               #
             </vs-th>
@@ -44,27 +45,30 @@
               Actions
             </vs-th>
           </template>
-          <template slot-scope="{data}">
-            <vs-tr :key="index" v-for="(tr, index) in data">
+          <template #default="{data}">
+            <vs-tr
+              v-for="(tr, index) in data"
+              :key="index"
+            >
               <vs-td :data="data[index].id">
-                {{data[index].id}}
+                {{ data[index].id }}
               </vs-td>
               <vs-td :data="data[index].name">
-                {{data[index].name}}
+                {{ data[index].name }}
               </vs-td>
               <vs-td :data="data[index].email">
                 <a :href="`mailto:${data[index].email}`">
-                  {{data[index].email}}
+                  {{ data[index].email }}
                 </a>
               </vs-td>
               <vs-td :data="data[index].country">
-                {{data[index].country}}
+                {{ data[index].country }}
               </vs-td>
               <vs-td :data="data[index].phone">
-                {{data[index].phone}}
+                {{ data[index].phone }}
               </vs-td>
               <vs-td :data="data[index].birthday">
-                {{data[index].birthday}}
+                {{ data[index].birthday }}
               </vs-td>
               <vs-td :data="data[index].id">
                 <vs-button
@@ -94,7 +98,7 @@
         </vs-table>
       </vs-col>
     </vs-row>
-    <template slot="footer">
+    <template #footer>
       <vs-row vs-justify="flex-start">
         <vs-button
           color="primary"
@@ -117,14 +121,14 @@
   import changeComponent from '../mixin/changeComponent';
 
   export default {
-    name: 'List',
+    name: 'ListComp',
     mixins: [changeComponent],
-    async beforeMount() {
-      await this.getAllUsers();
-    },
     data: () => ({
       userList: [],
     }),
+    async beforeMount() {
+      await this.getAllUsers();
+    },
     methods: {
       async getAllUsers() {
         const { data } = await getHttp(`${window.location.href}api/users`);

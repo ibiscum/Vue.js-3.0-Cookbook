@@ -2,7 +2,7 @@
   <vs-card
     style="margin: 20px;"
   >
-    <template slot="header">
+    <template #header>
       <h3>
         Update User
       </h3>
@@ -20,7 +20,7 @@
         />
       </vs-col>
     </vs-row>
-    <template slot="footer">
+    <template #footer>
       <vs-row vs-justify="flex-start">
         <vs-button
           color="success"
@@ -46,7 +46,7 @@
   </vs-card>
 </template>
 <script>
-  import UserForm from './userForm';
+  import UserForm from './UserForm.vue';
   import changeComponent from '../mixin/changeComponent';
   import {
     getHttp,
@@ -55,11 +55,11 @@
 
   export default {
     name: 'UpdateUser',
-    mixins: [changeComponent],
-    inject: ['userId'],
     components: {
       UserForm,
     },
+    mixins: [changeComponent],
+    inject: ['userId'],
     data: () => ({
       userData: {
         name: '',

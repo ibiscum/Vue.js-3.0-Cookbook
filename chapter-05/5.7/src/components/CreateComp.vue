@@ -2,7 +2,7 @@
   <vs-card
     style="margin: 20px;"
   >
-    <template slot="header">
+    <template #header>
       <h3>
         Create User
       </h3>
@@ -20,7 +20,7 @@
         />
       </vs-col>
     </vs-row>
-    <template slot="footer">
+    <template #footer>
       <vs-row vs-justify="flex-start">
         <vs-button
           color="success"
@@ -45,17 +45,18 @@
     </template>
   </vs-card>
 </template>
+
 <script>
-  import userForm from './userForm';
+  import userForm from './UserForm.vue';
   import changeComponent from '../mixin/changeComponent';
   import { postHttp } from '../http/fetchApi';
 
   export default {
     name: 'CreateUser',
-    mixins: [changeComponent],
     components: {
       userForm,
     },
+    mixins: [changeComponent],
     data: () => ({
       userData: {
         name: '',

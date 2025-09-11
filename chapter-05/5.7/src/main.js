@@ -1,10 +1,10 @@
 import './server/server';
 import Vue from 'vue';
 import App from './App.vue';
-import Vuesax from 'vuesax';
+import pinia from 'pinia';
 import './style.css';
 
-Vue.use(Vuesax);
+Vue.use(pinia);
 
 Vue.config.productionTip = false;
 

@@ -2,7 +2,7 @@
   <vs-card
     style="margin: 20px;"
   >
-    <template slot="header">
+    <template #header>
       <h3>
         View User
       </h3>
@@ -21,7 +21,7 @@
         />
       </vs-col>
     </vs-row>
-    <template slot="footer">
+    <template #footer>
       <vs-row vs-justify="flex-start">
         <vs-button
           color="primary"
@@ -50,15 +50,15 @@
   import {
     getHttp,
   } from '../http/fetchApi';
-  import userForm from './userForm';
+  import userForm from './UserForm.vue';
   import changeComponent from '../mixin/changeComponent';
 
   export default {
     name: 'ViewUser',
-    mixins: [changeComponent],
     components: {
       userForm,
     },
+    mixins: [changeComponent],
     inject: ['userId'],
     data: () => ({
       userData: {

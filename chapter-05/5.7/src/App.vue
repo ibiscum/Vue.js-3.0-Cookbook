@@ -5,7 +5,8 @@
         vs-type="flex"
         vs-justify="left"
         vs-align="left"
-        vs-w="12">
+        vs-w="12"
+      >
         <component
           :is="component"
           @change-component="changeComponent"
@@ -16,17 +17,13 @@
 </template>
 
 <script>
-  import List from './components/list';
-  import Create from './components/create';
-  import View from './components/view';
-  import Update from './components/update';
+  import List from './components/ListComp.vue';
+  import Create from './components/CreateComp.vue';
+  import View from './components/view.vue';
+  import Update from './components/update.vue';
 
   export default {
-    name: 'app',
-    data: () => ({
-      componentIs: 'list',
-      userId: 0,
-    }),
+    name: 'App',
     provide () {
       const base = {};
 
@@ -37,6 +34,10 @@
 
       return base;
     },
+    data: () => ({
+      componentIs: 'list',
+      userId: 0,
+    }),
     computed: {
       component() {
         switch (this.componentIs) {
