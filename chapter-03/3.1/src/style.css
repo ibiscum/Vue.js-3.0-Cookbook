@@ -1,5 +1,5 @@
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -7,18 +7,18 @@
   margin-top: 60px;
 }
 
-.cardBox {
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+.card-box {
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
   transition: 0.3s linear;
   border-radius: 3px;
   margin: 20px;
 }
 
-.cardBox:hover {
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+.card-box:hover {
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%);
 }
 
-.cardBox>.container {
+.card-box>.container {
   padding: 4px 18px;
 }
 
@@ -26,17 +26,17 @@
   display: inline-block;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (width <= 600px) {
   [class*="col-"] {
     width: 100%;
   }
 
-  .cardBox {
+  .card-box {
     margin: 20px 0;
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (width >= 600px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
   .col-3 {width: 25%;}
@@ -51,7 +51,7 @@
   .col-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (width >= 768px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
   .col-3 {width: 25%;}
@@ -66,7 +66,7 @@
   .col-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (width >= 992px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
   .col-3 {width: 25%;}
@@ -81,7 +81,7 @@
   .col-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (width >= 1200px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
   .col-3 {width: 25%;}
