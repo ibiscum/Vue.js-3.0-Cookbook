@@ -59,7 +59,7 @@ class ToDo(Resource):
     def delete(self, id):
         con = sql.connect('tasks.db')
         cur = con.cursor()
-        cur.execute('DELETE FROM tasks WHERE id = {}'.format(id))
+        cur.execute('DELETE FROM tasks WHERE id = ?', (id,))
         con.commit()
         con.close()
 
