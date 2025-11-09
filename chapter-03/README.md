@@ -6,7 +6,7 @@
 - [Adding an event listener to an element](./3_3)
 - [Removing the v-model from the input](./3_4)
 - [Creating a dynamic to-do list](./3_5)
-- [Creating computed properties and exploring how they work Displaying./3_ cleaner data and text with custom filters](6)
+- [Creating computed properties and exploring how they work Displaying./3_ cleaner data and text with custom filters](./3_6)
 - [Adding form validation with Vuelidate](./3_7)
 - [Creating filters and sorters for a list](./3_8)
 - [Creating conditional filtering to sort list data](./3_9)

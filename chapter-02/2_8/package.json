@@ -1,29 +1,35 @@
 {
-  "name": "2-8",
+  "name": "2_8",
   "version": "0.1.0",
   "private": true,
+  "type":"module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vite",
+    "build": "vite build",
+    "lint": "eslint --fix"
   },
   "dependencies": {
-    "core-js": "^3.46.0",
-    "npm-check-updates": "^19.1.1",
-    "tslib": "^2.8.1",
-    "vue": "^3.5.22",
-    "vue-facing-decorator": "^4.0.1"
+    "vue": "^3.5.24"
   },
   "devDependencies": {
-    "lint-staged": "^16.2.4",
-    "typescript": "^5.9.3"
+    "@vitejs/plugin-vue": "^6.0.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.5.1",
+    "lint-staged": "^16.2.6",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylus": "^0.64.0",
+    "stylus-loader": "^8.1.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vue-template-compiler": "^2.7.16"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "vue-cli-service lint",
+      "eslint --fix",
       "git add"
     ]
   }
