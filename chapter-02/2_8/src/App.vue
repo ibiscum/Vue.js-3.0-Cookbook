@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-facing-decorator';
 import Counter from './components/Counter.vue';
 import CounterByTen from './components/CounterByTen.vue';
 

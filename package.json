@@ -1,0 +1,10 @@
+{
+  "name": "vue.js-3.0-cookbook",
+  "lockfileVersion": 3,
+  "requires": true,
+  "workspaces": [
+    "chapter-02/2_3",
+    "chapter-02/2_4",
+    "chapter-02/2_5"
+  ]
+}

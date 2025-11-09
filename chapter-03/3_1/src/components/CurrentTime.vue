@@ -1,6 +1,6 @@
 <template>
-  <div class='cardBox'>
-    <div class='container'>
+  <div class="cardBox">
+    <div class="container">
       <h2>Today is:</h2>
       <h3>{{ getCurrentDate }}</h3>
     </div>
