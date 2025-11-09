@@ -1,9 +1,4 @@
-import {
-  Vue,
-  Component,
-  Watch,
-  Prop,
-} from 'vue-property-decorator';
+import { Vue, Component, Watch, Prop } from "vue-property-decorator";
 
 @Component
 export default class DefaultNumber extends Vue {
@@ -11,12 +6,12 @@ export default class DefaultNumber extends Vue {
 
   @Prop(Number) readonly value: number | undefined;
 
-  @Watch('valueNumber')
+  @Watch("valueNumber")
   onValueNumberChanged(val: number) {
-    this.$emit('input', val);
+    this.$emit("input", val);
   }
 
-  @Watch('value', { immediate: true })
+  @Watch("value", { immediate: true })
   onValueChanged(val: number) {
     this.valueNumber = val;
   }

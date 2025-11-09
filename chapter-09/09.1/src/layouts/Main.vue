@@ -1,16 +1,16 @@
 <template>
   <div>
     <top-menu />
-    <slot/>
+    <slot />
     <footer-section />
   </div>
 </template>
 <script>
-import FooterSection from '../components/Footer.vue';
-import TopMenu from '../components/TopMenu.vue';
+import FooterSection from "../components/Footer.vue";
+import TopMenu from "../components/TopMenu.vue";
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
   components: {
     TopMenu,
     FooterSection,

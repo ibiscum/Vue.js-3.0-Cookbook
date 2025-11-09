@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import UserStore from './user';
+import Vue from "vue";
+import Vuex from "vuex";
+import UserStore from "./user";
 
 Vue.use(Vuex);
 
@@ -9,23 +9,18 @@ export const store = new Vuex.Store({
 });
 
 if (module.hot) {
-  const hmr = [
-    './user',
-    './user/getters',
-    './user/actions',
-    './user/mutations',
-  ];
+  const hmr = ["./user", "./user/getters", "./user/actions", "./user/mutations"];
 
   const reloadCallback = () => {
-    const getters = require('./user/getters').default;
-    const actions = require('./user/actions').default;
-    const mutations =  require('./user/mutations').default;
+    const getters = require("./user/getters").default;
+    const actions = require("./user/actions").default;
+    const mutations = require("./user/mutations").default;
 
     store.hotUpdate({
       getters,
       actions,
       mutations,
-    })
+    });
   };
 
   module.hot.accept(hmr, reloadCallback);

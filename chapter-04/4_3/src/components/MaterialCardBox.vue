@@ -1,16 +1,7 @@
 <template>
-  <div
-    class="cardBox"
-    :class="cardElevation"
-  >
-    <div
-      v-if="showHeader"
-      class="header"
-    >
-      <slot
-        v-if="$slots.header"
-        name="header"
-      />
+  <div class="cardBox" :class="cardElevation">
+    <div v-if="showHeader" class="header">
+      <slot v-if="$slots.header" name="header" />
       <div v-else>
         <h1 class="cardHeader cardText">
           {{ header }}
@@ -20,18 +11,9 @@
         </h2>
       </div>
     </div>
-    <div
-      v-if="showMediaContent"
-      class="media"
-    >
-      <slot
-        v-if="$slots.media"
-        name="media"
-      />
-      <img
-        v-else
-        :src="imgSrc"
-      >
+    <div v-if="showMediaContent" class="media">
+      <slot v-if="$slots.media" name="media" />
+      <img v-else :src="imgSrc" />
     </div>
     <div
       v-if="showMainContent"
@@ -42,70 +24,61 @@
       }"
     >
       <slot v-if="$slots.default" />
-      <p
-        v-else
-        class="cardText"
-      >
+      <p v-else class="cardText">
         {{ mainText }}
       </p>
     </div>
-    <div
-      v-if="showActionsButtons"
-      class="action"
-    >
-      <slot
-        v-if="$slots.action"
-        name="action"
-      />
+    <div v-if="showActionsButtons" class="action">
+      <slot v-if="$slots.action" name="action" />
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'MaterialCardBox',
+  name: "MaterialCardBox",
   inheritAttrs: false,
   props: {
     header: {
       type: String,
       required: false,
-      default: '',
-      validator: (v) => typeof v === 'string',
+      default: "",
+      validator: (v) => typeof v === "string",
     },
     subHeader: {
       type: String,
       required: false,
-      default: '',
-      validator: (v) => typeof v === 'string',
+      default: "",
+      validator: (v) => typeof v === "string",
     },
     mainText: {
       type: String,
       required: false,
-      default: '',
-      validator: (v) => typeof v === 'string',
+      default: "",
+      validator: (v) => typeof v === "string",
     },
     showMedia: {
       type: Boolean,
       required: false,
       default: false,
-      validator: (v) => typeof v === 'boolean',
+      validator: (v) => typeof v === "boolean",
     },
     imgSrc: {
       type: String,
       required: false,
-      default: '',
-      validator: (v) => typeof v === 'string',
+      default: "",
+      validator: (v) => typeof v === "string",
     },
     showActions: {
       type: Boolean,
       required: false,
       default: false,
-      validator: (v) => typeof v === 'boolean',
+      validator: (v) => typeof v === "boolean",
     },
     elevation: {
       type: Number,
       required: false,
       default: 2,
-      validator: (v) => typeof v === 'number',
+      validator: (v) => typeof v === "number",
     },
   },
   computed: {
@@ -116,7 +89,7 @@ export default {
       return this.showActions && this.$slots.action;
     },
     showHeader() {
-      return this.$slots.header || (this.header || this.subHeader);
+      return this.$slots.header || this.header || this.subHeader;
     },
     showMainContent() {
       return this.$slots.default || this.mainText;
@@ -143,7 +116,9 @@ export default {
   background-color: #fff;
   position: relative;
   display: inline-block;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 .cardBox > .header {

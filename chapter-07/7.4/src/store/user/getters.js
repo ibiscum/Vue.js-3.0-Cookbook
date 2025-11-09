@@ -8,8 +8,8 @@ function getUsersData(state) {
 
 function getUserById(state) {
   return (userId) => {
-    return state.data.usersList.find(u => u.id === userId);
-  }
+    return state.data.usersList.find((u) => u.id === userId);
+  };
 }
 
 function isLoading(state) {

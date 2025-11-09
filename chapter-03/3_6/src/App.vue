@@ -1,22 +1,20 @@
 <template>
-  <div id='app'>
-    <current-time class='col-4' />
-    <task-input class='col-6' @add-task='addNewTask' />
-    <div class='col-12'>
-      <div class='cardBox'>
-        <div class='container'>
+  <div id="app">
+    <current-time class="col-4" />
+    <task-input class="col-6" @add-task="addNewTask" />
+    <div class="col-12">
+      <div class="cardBox">
+        <div class="container">
           <h2>My Tasks</h2>
-          <ul class='taskList'>
-            <li
-              v-for='(taskItem, index) in displayList'
-              :key='`${index}_${Math.random()}`'
-            >
-              <input type='checkbox'
-                :checked='!!taskItem.finishedAt'
-                @input='changeStatus(index)'
+          <ul class="taskList">
+            <li v-for="(taskItem, index) in displayList" :key="`${index}_${Math.random()}`">
+              <input
+                type="checkbox"
+                :checked="!!taskItem.finishedAt"
+                @input="changeStatus(index)"
               />
               {{ taskItem.task }}
-              <span v-if='taskItem.finishedAt'>{{ taskItem.finishedAt }}</span>
+              <span v-if="taskItem.finishedAt">{{ taskItem.finishedAt }}</span>
             </li>
           </ul>
         </div>
@@ -26,11 +24,11 @@
 </template>
 
 <script>
-import CurrentTime from './components/CurrentTime.vue';
-import TaskInput from './components/TaskInput.vue';
+import CurrentTime from "./components/CurrentTime.vue";
+import TaskInput from "./components/TaskInput.vue";
 
 export default {
-  name: 'TodoApp',
+  name: "TodoApp",
   components: {
     CurrentTime,
     TaskInput,
@@ -63,7 +61,7 @@ export default {
 };
 </script>
 <style scoped>
-  .taskList li{
-    text-align: left;
-  }
+.taskList li {
+  text-align: left;
+}
 </style>

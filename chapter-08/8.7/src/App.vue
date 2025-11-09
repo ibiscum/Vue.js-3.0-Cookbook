@@ -1,31 +1,16 @@
 <template>
   <div id="app">
-    <transition
-      name="rotate"
-      mode="out-in"
-    >
-      <img
-        v-if="display"
-        key="up"
-        src="./assets/logo.png">
-      <img
-        v-else
-        key="down"
-        src="./assets/logo.png"
-        style="transform: rotate(180deg)"
-      >
+    <transition name="rotate" mode="out-in">
+      <img v-if="display" key="up" src="./assets/logo.png" />
+      <img v-else key="down" src="./assets/logo.png" style="transform: rotate(180deg)" />
     </transition>
-    <button
-      @click="display = !display"
-    >
-      Toggle
-    </button>
+    <button @click="display = !display">Toggle</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data: () => ({
     display: true,
   }),
@@ -44,12 +29,12 @@ export default {
 
 .rotate-enter-active,
 .rotate-leave-active {
-  transition: transform .8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
 }
 
 .rotate-enter,
 .rotate-leave-active {
-  transform: rotate( -180deg );
-  transition: transform .8s ease-in-out;
+  transform: rotate(-180deg);
+  transition: transform 0.8s ease-in-out;
 }
 </style>

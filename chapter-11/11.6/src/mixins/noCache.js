@@ -1,6 +1,6 @@
 export default {
   data: () => ({
-    noCacheField: '',
+    noCacheField: "",
   }),
   computed: {
     noCache: {

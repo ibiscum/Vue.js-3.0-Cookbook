@@ -2,19 +2,15 @@
   <div>
     <fieldset>
       <legend>{{ formattedNumber }}</legend>
-      <button @click="increase">
-        Increase
-      </button><button @click="decrease">
-        Decrease
-      </button>
+      <button @click="increase">Increase</button><button @click="decrease">Decrease</button>
     </fieldset>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import componentMount from '../decorators/componentMount';
+import Vue from "vue";
+import Component from "vue-class-component";
+import componentMount from "../decorators/componentMount";
 
 @Component
 @componentMount

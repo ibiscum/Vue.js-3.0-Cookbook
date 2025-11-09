@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    RandomCat: () => import('./components/RandomCat'),
+    RandomCat: () => import("./components/RandomCat"),
   },
 };
 </script>

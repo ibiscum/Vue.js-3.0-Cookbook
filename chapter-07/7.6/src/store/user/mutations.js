@@ -1,6 +1,6 @@
-import MT from './types';
+import MT from "./types";
 
-const setLoading = state => {
+const setLoading = (state) => {
   state.loading = true;
 };
 
@@ -22,7 +22,7 @@ const setUserData = (state, payload) => {
 };
 
 const updateUser = (state, payload) => {
-  const userIndex = state.data.usersList.findIndex(u => u.id === payload.id);
+  const userIndex = state.data.usersList.findIndex((u) => u.id === payload.id);
   if (userIndex > -1) {
     state.data.usersList[userIndex] = payload;
   }
@@ -31,7 +31,7 @@ const updateUser = (state, payload) => {
 };
 
 const removeUser = (state, payload) => {
-  const userIndex = state.data.usersList.findIndex(u => u.id === payload);
+  const userIndex = state.data.usersList.findIndex((u) => u.id === payload);
   if (userIndex > -1) {
     state.data.usersList.splice(userIndex, 1);
   }
@@ -46,4 +46,4 @@ export default {
   [MT.SET_USER_DATA]: setUserData,
   [MT.UPDATE_USER]: updateUser,
   [MT.REMOVE_USER]: removeUser,
-}
+};

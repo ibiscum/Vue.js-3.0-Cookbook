@@ -8,28 +8,17 @@
       img-src="https://picsum.photos/300/200"
     >
       <p>
-        <StarRating
-          ref="starRating"
-        />
+        <StarRating ref="starRating" />
       </p>
       <p>
-        The path of the righteous man is beset on all sides by the iniquities
-        of the selfish and the tyranny of evil men.
+        The path of the righteous man is beset on all sides by the iniquities of the selfish and the
+        tyranny of evil men.
       </p>
       <template v-slot:action>
-        <MaterialButton
-          background-color="#027be3"
-          text-color="#fff"
-          @click="resetVote"
-        >
+        <MaterialButton background-color="#027be3" text-color="#fff" @click="resetVote">
           Reset
         </MaterialButton>
-        <MaterialButton
-          background-color="#26a69a"
-          text-color="#fff"
-          is-flat
-          @click="forceVote"
-        >
+        <MaterialButton background-color="#26a69a" text-color="#fff" is-flat @click="forceVote">
           Rate 5 Stars
         </MaterialButton>
       </template>
@@ -38,12 +27,12 @@
 </template>
 
 <script>
-import MaterialCardBox from './components/MaterialCardBox.vue';
-import MaterialButton from './components/MaterialButton.vue';
-import StarRating from './components/StarRating.vue';
+import MaterialCardBox from "./components/MaterialCardBox.vue";
+import MaterialButton from "./components/MaterialButton.vue";
+import StarRating from "./components/StarRating.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     StarRating,
     MaterialButton,
@@ -62,7 +51,7 @@ export default {
 };
 </script>
 <style>
-  body {
-    font-size: 14px;
-  }
+body {
+  font-size: 14px;
+}
 </style>

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'ContactPage',
+  name: "ContactPage",
   mounted() {
     if (Object.keys(this.$route.params).length) {
       alert(`Hey! I've got some parameter! ${JSON.stringify(this.$route.params)}`);

@@ -4,19 +4,19 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/essential',
-    'plugin:vue/recommended',
-    'plugin:vue/strongly-recommended',
-    '@vue/airbnb',
+    "plugin:vue/essential",
+    "plugin:vue/recommended",
+    "plugin:vue/strongly-recommended",
+    "@vue/airbnb",
   ],
   rules: {
-    'class-methods-use-this': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "class-methods-use-this": "off",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: "babel-eslint",
   },
   axios: {},
-  css: ['bulma/css/bulma.css'],
+  css: ["bulma/css/bulma.css"],
 };

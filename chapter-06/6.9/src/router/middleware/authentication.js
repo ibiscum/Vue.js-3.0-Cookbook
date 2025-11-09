@@ -1,5 +1,5 @@
 export default (to, from, next) => {
-  if (to.meta.authenticated && sessionStorage.getItem('auth')) {
+  if (to.meta.authenticated && sessionStorage.getItem("auth")) {
     return next();
   }
 
@@ -7,5 +7,5 @@ export default (to, from, next) => {
     return next();
   }
 
-  next('/login');
+  next("/login");
 };

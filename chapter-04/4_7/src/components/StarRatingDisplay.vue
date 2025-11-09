@@ -1,10 +1,7 @@
 <template>
   <div class="starRating">
     <ul>
-      <li
-        v-for="rate in maxRating"
-        :key="rate"
-      >
+      <li v-for="rate in maxRating" :key="rate">
         <i class="material-icons">
           {{ getStarName(rate) }}
         </i>
@@ -13,18 +10,13 @@
     <span class="rating">
       {{ rating }}
     </span>
-    <span
-      v-if="votes"
-      class="votes"
-    >
-      ({{ votes }})
-    </span>
+    <span v-if="votes" class="votes"> ({{ votes }}) </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'StarRatingDisplay',
+  name: "StarRatingDisplay",
   props: {
     maxRating: {
       type: Number,
@@ -45,31 +37,32 @@ export default {
   inject: {
     starRating: {
       default() {
-        console.error('StarRatingDisplay need to be a child of StarRating');
+        console.error("StarRatingDisplay need to be a child of StarRating");
       },
     },
   },
   methods: {
     getStarName(rate) {
       if (rate <= this.rating) {
-        return 'star';
+        return "star";
       }
-      if (Math.fround((rate - this.rating)) < 1) {
-        return 'star_half';
+      if (Math.fround(rate - this.rating) < 1) {
+        return "star_half";
       }
-      return 'star_border';
+      return "star_border";
     },
   },
 };
 </script>
 
 <style scoped>
-  @import '../style/starRating.css';
+@import "../style/starRating.css";
 
-  .rating, .votes {
-    display: inline-block;
-    color: rgba(0,0,0, .65);
-    font-size: .75rem;
-    margin-left: .4rem;
-  }
+.rating,
+.votes {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.75rem;
+  margin-left: 0.4rem;
+}
 </style>

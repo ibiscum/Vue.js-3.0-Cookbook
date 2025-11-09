@@ -1,4 +1,5 @@
 # Chapter 3
+
 ## Data Binding, Form Validation3s, Events, and Computed Properties
 
 - [Creating the "hello world" component](./3_1)
@@ -14,6 +15,7 @@
 - [Using vue-devtools to debug your application](./3_11)
 
 ## Prettier
+
     npm install --save-dev --save-exact prettier
     node --eval "fs.writeFileSync('.prettierrc','{}\n')"
     node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"

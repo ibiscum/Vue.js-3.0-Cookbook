@@ -1,40 +1,18 @@
 <template>
   <vs-row>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="12">
-      <vs-card
-        style="margin: 20px;"
-      >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
+      <vs-card style="margin: 20px">
         <div slot="header">
-          <h3>
-            Update User
-          </h3>
+          <h3>Update User</h3>
         </div>
         <vs-row>
-          <vs-col
-            vs-type="flex"
-            vs-justify="left"
-            vs-align="left"
-            vs-w="12"
-            style="margin: 20px"
-          >
-            <user-form
-              v-model="userData"
-            />
+          <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12" style="margin: 20px">
+            <user-form v-model="userData" />
           </vs-col>
         </vs-row>
         <div slot="footer">
           <vs-row vs-justify="flex-start">
-            <vs-button
-              color="success"
-              type="filled"
-              icon="save"
-              size="small"
-              @click="updateUser"
-            >
+            <vs-button color="success" type="filled" icon="save" size="small" @click="updateUser">
               Update User
             </vs-button>
             <vs-button
@@ -54,49 +32,46 @@
   </vs-row>
 </template>
 <script>
-  import UserForm from '@/components/userForm';
-  import changeRouteMixin from '@/mixin/changeRoute';
-  import {
-    getHttp,
-    patchHttp,
-  } from '../http/fetchApi';
+import UserForm from "@/components/userForm";
+import changeRouteMixin from "@/mixin/changeRoute";
+import { getHttp, patchHttp } from "../http/fetchApi";
 
-  export default {
-    name: 'UpdateView',
-    mixins: [changeRouteMixin],
-    components: {
-      UserForm,
+export default {
+  name: "UpdateView",
+  mixins: [changeRouteMixin],
+  components: {
+    UserForm,
+  },
+  data: () => ({
+    userData: {
+      name: "",
+      email: "",
+      birthday: "",
+      country: "",
+      phone: "",
     },
-    data: () => ({
-      userData: {
-        name: '',
-        email: '',
-        birthday: '',
-        country: '',
-        phone: '',
-      },
-    }),
-    computed: {
-      userId() {
-        return this.$route.params.id;
-      },
+  }),
+  computed: {
+    userId() {
+      return this.$route.params.id;
     },
-    async created() {
-      await this.getUserById();
+  },
+  async created() {
+    await this.getUserById();
+  },
+  methods: {
+    async getUserById() {
+      const { data } = await getHttp(`api/users/${this.userId}`);
+      this.userData = data;
     },
-    methods: {
-      async getUserById() {
-        const { data } = await getHttp(`api/users/${this.userId}`);
-        this.userData = data;
-      },
-      async updateUser() {
-        await patchHttp(`api/users/${this.userData.id}`, {
-          data: {
-            ...this.userData,
-          }
-        });
-        this.changeRoute('list');
-      },
+    async updateUser() {
+      await patchHttp(`api/users/${this.userData.id}`, {
+        data: {
+          ...this.userData,
+        },
+      });
+      this.changeRoute("list");
     },
-  }
+  },
+};
 </script>

@@ -2,6 +2,10 @@
   "name": "vue.js-3.0-cookbook",
   "lockfileVersion": 3,
   "requires": true,
+  "scripts": {
+    "format": "prettier . --write",
+    "lint": "eslint --fix"
+  },
   "workspaces": [
     "chapter-02/2_3",
     "chapter-02/2_4",
@@ -19,5 +23,11 @@
     "chapter-03/3_9",
     "chapter-03/3_10",
     "chapter-03/3_11"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "3.6.2"
+  },
+  "dependencies": {
+    "npm-check-updates": "^19.1.2"
+  }
 }

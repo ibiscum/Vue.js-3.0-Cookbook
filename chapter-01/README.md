@@ -1,4 +1,5 @@
 ### Chapter 1
+
 # Understanding Vue 3 and Creating Components
 
 - What is new in Vue 3

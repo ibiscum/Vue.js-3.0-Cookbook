@@ -1,11 +1,7 @@
 <template>
-  <vs-card
-    style="margin: 20px;"
-  >
+  <vs-card style="margin: 20px">
     <template #header>
-      <h3>
-        Update User
-      </h3>
+      <h3>Update User</h3>
     </template>
     <vs-row>
       <vs-col
@@ -15,9 +11,7 @@
         vs-w="12"
         style="margin: 20px"
       >
-        <user-form
-          v-model="userData"
-        />
+        <user-form v-model="userData" />
       </vs-col>
     </vs-row>
     <template #footer>
@@ -46,45 +40,44 @@
   </vs-card>
 </template>
 <script>
-  import UserForm from './UserForm.vue';
-  import changeComponent from '../mixin/changeComponent';
-  import {
-    getHttp,
-    patchHttp,
-  } from '../http/fetchApi';
+import UserForm from "./UserForm.vue";
+import changeComponent from "../mixin/changeComponent";
+import { getHttp, patchHttp } from "../http/fetchApi";
 
-  export default {
-    name: 'UpdateUser',
-    components: {
-      UserForm,
+export default {
+  name: "UpdateUser",
+  components: {
+    UserForm,
+  },
+  mixins: [changeComponent],
+  inject: ["userId"],
+  data: () => ({
+    userData: {
+      name: "",
+      email: "",
+      birthday: "",
+      country: "",
+      phone: "",
     },
-    mixins: [changeComponent],
-    inject: ['userId'],
-    data: () => ({
-      userData: {
-        name: '',
-        email: '',
-        birthday: '',
-        country: '',
-        phone: '',
-      },
-    }),
-    async beforeMount() {
-      await this.getUserById();
+  }),
+  async beforeMount() {
+    await this.getUserById();
+  },
+  methods: {
+    async getUserById() {
+      const { data } = await getHttp(
+        `${window.location.href}api/users/${this.userId}`,
+      );
+      this.userData = data;
     },
-    methods: {
-      async getUserById() {
-        const { data } = await getHttp(`${window.location.href}api/users/${this.userId}`);
-        this.userData = data;
-      },
-      async updateUser() {
-        await patchHttp(`${window.location.href}api/users/${this.userData.id}`, {
-          data: {
-            ...this.userData,
-          }
-        });
-        this.changeComponent('list', 0);
-      },
+    async updateUser() {
+      await patchHttp(`${window.location.href}api/users/${this.userData.id}`, {
+        data: {
+          ...this.userData,
+        },
+      });
+      this.changeComponent("list", 0);
     },
-  };
+  },
+};
 </script>

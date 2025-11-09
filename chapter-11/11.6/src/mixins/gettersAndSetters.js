@@ -1,6 +1,6 @@
 export default {
   data: () => ({
-    myComputedField: '',
+    myComputedField: "",
   }),
   computed: {
     field: {

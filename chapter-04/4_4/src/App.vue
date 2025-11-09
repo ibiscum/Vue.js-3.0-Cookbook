@@ -11,17 +11,8 @@
         of the selfish and the tyranny of evil men.`"
     >
       <template v-slot:action>
-        <MaterialButton
-          background-color="#027be3"
-          text-color="#fff"
-        >
-          Action 1
-        </MaterialButton>
-        <MaterialButton
-          background-color="#26a69a"
-          text-color="#fff"
-          is-flat
-        >
+        <MaterialButton background-color="#027be3" text-color="#fff"> Action 1 </MaterialButton>
+        <MaterialButton background-color="#26a69a" text-color="#fff" is-flat>
           Action 2
         </MaterialButton>
       </template>
@@ -30,11 +21,11 @@
 </template>
 
 <script>
-import MaterialCardBox from './components/MaterialCardBox.vue';
-import MaterialButton from './components/MaterialButton.vue';
+import MaterialCardBox from "./components/MaterialCardBox.vue";
+import MaterialButton from "./components/MaterialButton.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MaterialButton,
     MaterialCardBox,
@@ -42,7 +33,7 @@ export default {
 };
 </script>
 <style>
-  body {
-    font-size: 14px;
-  }
+body {
+  font-size: 14px;
+}
 </style>

@@ -1,27 +1,18 @@
 <template>
   <div>
-    <StarRatingInput
-      v-if="!voted"
-      :max-rating="maxRating"
-      @final-vote="vote"
-    >
+    <StarRatingInput v-if="!voted" :max-rating="maxRating" @final-vote="vote">
       Rate this Place
     </StarRatingInput>
-    <StarRatingDisplay
-      v-else
-      :max-rating="maxRating"
-      :rating="rating || rank"
-      :votes="votes"
-    />
+    <StarRatingDisplay v-else :max-rating="maxRating" :rating="rating || rank" :votes="votes" />
   </div>
 </template>
 
 <script>
-import StarRatingInput from './StarRatingInput.vue';
-import StarRatingDisplay from './StarRatingDisplay.vue';
+import StarRatingInput from "./StarRatingInput.vue";
+import StarRatingDisplay from "./StarRatingDisplay.vue";
 
 export default {
-  name: 'StarRating',
+  name: "StarRating",
   components: { StarRatingDisplay, StarRatingInput },
   props: {
     maxRating: {

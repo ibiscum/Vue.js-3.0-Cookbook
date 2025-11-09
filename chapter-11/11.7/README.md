@@ -2,7 +2,7 @@
 
 # Server - Python
 
-``` bash
+```bash
 $ python server/app.py
 ```
 
@@ -12,7 +12,7 @@ $ python server/app.py
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 

@@ -1,4 +1,5 @@
 ### Chapter 4
+
 # Components, Mixins, and Functional Components
 
 - [Creating a visual template component](./4_1)
@@ -8,5 +9,5 @@
 - [Accessing your children components data](./4_5)
 - [Creating a dynamic injected component](./4_6)
 - [Creating a dependency injection component](./4_7)
-- [Creating a component mixin](./4_8) 
+- [Creating a component mixin](./4_8)
 - [Lazy loading your components](./4_9)

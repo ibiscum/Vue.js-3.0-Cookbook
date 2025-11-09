@@ -1,5 +1,5 @@
 export default {
-  '#': {
+  "#": {
     pattern: /[\x2A\d]/,
   },
   0: {
@@ -16,13 +16,13 @@ export default {
   },
   A: {
     pattern: /[a-zA-Z]/,
-    transform: v => v.toLocaleUpperCase(),
+    transform: (v) => v.toLocaleUpperCase(),
   },
   a: {
     pattern: /[a-zA-Z]/,
-    transform: v => v.toLocaleLowerCase(),
+    transform: (v) => v.toLocaleLowerCase(),
   },
-  '!': {
+  "!": {
     escape: true,
   },
 };

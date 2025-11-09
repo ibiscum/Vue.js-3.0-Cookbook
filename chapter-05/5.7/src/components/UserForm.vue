@@ -1,11 +1,6 @@
 <template>
   <vs-row>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="6"
-    >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="6">
       <vs-input
         v-model="tmpForm.name"
         :disabled="disabled"
@@ -14,12 +9,7 @@
         class="inputMargin full-width"
       />
     </vs-col>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="6"
-    >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="6">
       <vs-input
         v-model="tmpForm.email"
         :disabled="disabled"
@@ -28,12 +18,7 @@
         class="inputMargin full-width"
       />
     </vs-col>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="6"
-    >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="6">
       <vs-input
         v-model="tmpForm.country"
         :disabled="disabled"
@@ -42,12 +27,7 @@
         class="inputMargin full-width"
       />
     </vs-col>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="6"
-    >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="6">
       <vs-input
         v-model="tmpForm.phone"
         :disabled="disabled"
@@ -56,12 +36,7 @@
         class="inputMargin full-width"
       />
     </vs-col>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="6"
-    >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="6">
       <vs-input
         v-model="tmpForm.birthday"
         :disabled="disabled"
@@ -73,44 +48,43 @@
   </vs-row>
 </template>
 <script>
-  export default {
-    name: 'UserForm',
-    props: {
-      value: {
-        type: Object,
-        required: false,
-        default: () => {
-        },
-      },
-      disabled: {
-        type: Boolean,
-        required: false,
-        default: false,
-      }
+export default {
+  name: "UserForm",
+  props: {
+    value: {
+      type: Object,
+      required: false,
+      default: () => {},
     },
-emits: ['input'],
-    data: () => ({
-      tmpForm: {},
-    }),
-    watch: {
-      tmpForm: {
-        handler(value) {
-          this.$emit('input', value);
-        },
-        deep: true,
-      },
-      value: {
-        handler(value) {
-          this.tmpForm = value;
-        },
-        deep: true,
-        immediate: true,
-      }
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
-  }
+  },
+  emits: ["input"],
+  data: () => ({
+    tmpForm: {},
+  }),
+  watch: {
+    tmpForm: {
+      handler(value) {
+        this.$emit("input", value);
+      },
+      deep: true,
+    },
+    value: {
+      handler(value) {
+        this.tmpForm = value;
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+};
 </script>
 <style>
-  .inputMargin {
-    margin: 15px;
-  }
+.inputMargin {
+  margin: 15px;
+}
 </style>

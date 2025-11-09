@@ -19,17 +19,17 @@
 </template>
 
 <script>
-import MaterialCardBox from './components/MaterialCardBox.vue';
+import MaterialCardBox from "./components/MaterialCardBox.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MaterialCardBox,
   },
 };
 </script>
 <style>
- body{
-    font-size: 14px;
-  }
+body {
+  font-size: 14px;
+}
 </style>

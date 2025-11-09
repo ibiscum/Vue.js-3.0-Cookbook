@@ -1,76 +1,50 @@
 <template>
   <vs-row>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="12">
-      <vs-card
-        style="margin: 20px;"
-      >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
+      <vs-card style="margin: 20px">
         <div slot="header">
-          <h3>
-            Users
-          </h3>
+          <h3>Users</h3>
         </div>
         <vs-row>
-          <vs-col
-            vs-type="flex"
-            vs-justify="left"
-            vs-align="left"
-            vs-w="12">
+          <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
             <vs-table
               :data="userList"
               search
               stripe
               pagination
               max-items="10"
-              style="width: 100%; padding: 20px;"
+              style="width: 100%; padding: 20px"
             >
               <template slot="thead">
-                <vs-th sort-key="name">
-                  #
-                </vs-th>
-                <vs-th sort-key="name">
-                  Name
-                </vs-th>
-                <vs-th sort-key="email">
-                  Email
-                </vs-th>
-                <vs-th sort-key="country">
-                  Country
-                </vs-th>
-                <vs-th sort-key="phone">
-                  Phone
-                </vs-th>
-                <vs-th sort-key="Birthday">
-                  Birthday
-                </vs-th>
-                <vs-th>
-                  Actions
-                </vs-th>
+                <vs-th sort-key="name"> # </vs-th>
+                <vs-th sort-key="name"> Name </vs-th>
+                <vs-th sort-key="email"> Email </vs-th>
+                <vs-th sort-key="country"> Country </vs-th>
+                <vs-th sort-key="phone"> Phone </vs-th>
+                <vs-th sort-key="Birthday"> Birthday </vs-th>
+                <vs-th> Actions </vs-th>
               </template>
-              <template slot-scope="{data}">
+              <template slot-scope="{ data }">
                 <vs-tr :key="index" v-for="(tr, index) in data">
                   <vs-td :data="data[index].id">
-                    {{data[index].id}}
+                    {{ data[index].id }}
                   </vs-td>
                   <vs-td :data="data[index].name">
-                    {{data[index].name}}
+                    {{ data[index].name }}
                   </vs-td>
                   <vs-td :data="data[index].email">
                     <a :href="`mailto:${data[index].email}`">
-                      {{data[index].email}}
+                      {{ data[index].email }}
                     </a>
                   </vs-td>
                   <vs-td :data="data[index].country">
-                    {{data[index].country}}
+                    {{ data[index].country }}
                   </vs-td>
                   <vs-td :data="data[index].phone">
-                    {{data[index].phone}}
+                    {{ data[index].phone }}
                   </vs-td>
                   <vs-td :data="data[index].birthday">
-                    {{data[index].birthday}}
+                    {{ data[index].birthday }}
                   </vs-td>
                   <vs-td :data="data[index].id">
                     <vs-button
@@ -118,35 +92,32 @@
   </vs-row>
 </template>
 <script>
-  import {
-    getHttp,
-    deleteHttp,
-  } from '@/http/fetchApi';
-  import changeRouteMixin from '@/mixin/changeRoute';
+import { getHttp, deleteHttp } from "@/http/fetchApi";
+import changeRouteMixin from "@/mixin/changeRoute";
 
-  export default {
-    name: 'ListUsers',
-    mixins: [changeRouteMixin],
-    async beforeMount() {
+export default {
+  name: "ListUsers",
+  mixins: [changeRouteMixin],
+  async beforeMount() {
+    await this.getAllUsers();
+  },
+  data: () => ({
+    userList: [],
+  }),
+  methods: {
+    async getAllUsers() {
+      const { data } = await getHttp(`api/users`);
+      this.userList = data;
+    },
+    async deleteUser(id) {
+      await deleteHttp(`api/users/${id}`);
       await this.getAllUsers();
     },
-    data: () => ({
-      userList: [],
-    }),
-    methods: {
-      async getAllUsers() {
-        const { data } = await getHttp(`api/users`);
-        this.userList = data;
-      },
-      async deleteUser(id) {
-        await deleteHttp(`api/users/${id}`);
-        await this.getAllUsers();
-      },
-    }
-  };
+  },
+};
 </script>
 <style scoped>
-  .vs-button {
-    margin-left: 5px;
-  }
+.vs-button {
+  margin-left: 5px;
+}
 </style>

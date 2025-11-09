@@ -7,9 +7,9 @@ function getUserData(state) {
 }
 
 function getUserById(state) {
-  return userId => {
-    return state.data.usersList.find(u => u.id === userId);
-  }
+  return (userId) => {
+    return state.data.usersList.find((u) => u.id === userId);
+  };
 }
 
 function isLoading(state) {

@@ -1,11 +1,7 @@
 <template>
-  <vs-card
-    style="margin: 20px;"
-  >
+  <vs-card style="margin: 20px">
     <template #header>
-      <h3>
-        Create User
-      </h3>
+      <h3>Create User</h3>
     </template>
     <vs-row>
       <vs-col
@@ -15,9 +11,7 @@
         vs-w="12"
         style="margin: 20px"
       >
-        <user-form
-          v-model="userData"
-        />
+        <user-form v-model="userData" />
       </vs-col>
     </vs-row>
     <template #footer>
@@ -47,34 +41,34 @@
 </template>
 
 <script>
-  import userForm from './UserForm.vue';
-  import changeComponent from '../mixin/changeComponent';
-  import { postHttp } from '../http/fetchApi';
+import userForm from "./UserForm.vue";
+import changeComponent from "../mixin/changeComponent";
+import { postHttp } from "../http/fetchApi";
 
-  export default {
-    name: 'CreateUser',
-    components: {
-      userForm,
+export default {
+  name: "CreateUser",
+  components: {
+    userForm,
+  },
+  mixins: [changeComponent],
+  data: () => ({
+    userData: {
+      name: "",
+      email: "",
+      birthday: "",
+      country: "",
+      phone: "",
     },
-    mixins: [changeComponent],
-    data: () => ({
-      userData: {
-        name: '',
-        email: '',
-        birthday: '',
-        country: '',
-        phone: '',
-      },
-    }),
-    methods: {
-      async createUser() {
-        await postHttp(`${window.location.href}api/users`, {
-          data: {
-            ...this.userData,
-          }
-        });
-        this.changeComponent('list', 0);
-      },
+  }),
+  methods: {
+    async createUser() {
+      await postHttp(`${window.location.href}api/users`, {
+        data: {
+          ...this.userData,
+        },
+      });
+      this.changeComponent("list", 0);
     },
-  };
+  },
+};
 </script>

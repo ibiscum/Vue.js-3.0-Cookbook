@@ -1,20 +1,20 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import UserRoutes from './user';
-import NotFound from '@/views/NotFound';
-import Login from '@/views/Login';
-import AuthenticationMiddleware from './middleware/authentication';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import UserRoutes from "./user";
+import NotFound from "@/views/NotFound";
+import Login from "@/views/Login";
+import AuthenticationMiddleware from "./middleware/authentication";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    redirect: '/user'
+    path: "/",
+    redirect: "/user",
   },
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     component: Login,
     meta: {
       authenticated: false,
@@ -22,7 +22,7 @@ const routes = [
   },
   ...UserRoutes,
   {
-    path: '*',
+    path: "*",
     component: NotFound,
     meta: {
       authenticated: false,
@@ -31,9 +31,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 router.beforeEach(AuthenticationMiddleware);

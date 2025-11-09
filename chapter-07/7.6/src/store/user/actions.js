@@ -1,10 +1,5 @@
-import {
-  getHttp,
-  patchHttp,
-  deleteHttp,
-  postHttp,
-} from '@/http/fetchApi';
-import MT from './types';
+import { getHttp, patchHttp, deleteHttp, postHttp } from "@/http/fetchApi";
+import MT from "./types";
 
 async function createUser({ commit }, userData) {
   try {
@@ -12,7 +7,7 @@ async function createUser({ commit }, userData) {
     await postHttp(`/api/users`, {
       data: {
         ...userData,
-      }
+      },
     });
     commit(MT.SET_USER_DATA, userData);
   } catch (error) {
@@ -46,7 +41,7 @@ async function updateUser({ commit }, payload) {
     await patchHttp(`api/users/${payload.id}`, {
       data: {
         ...payload,
-      }
+      },
     });
     commit(MT.UPDATE_USER, payload);
   } catch (error) {
@@ -70,4 +65,4 @@ export default {
   fetchUserData,
   updateUser,
   removeUser,
-}
+};

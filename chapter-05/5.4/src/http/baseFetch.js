@@ -1,7 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-export default async (url, method, options = {}) => axios({
-  method: method.toUpperCase(),
-  url,
-  ...options,
-});
+export default async (url, method, options = {}) =>
+  axios({
+    method: method.toUpperCase(),
+    url,
+    ...options,
+  });

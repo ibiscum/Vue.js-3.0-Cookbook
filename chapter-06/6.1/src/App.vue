@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <navigation-bar />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
-import NavigationBar from './components/navigationBar.vue';
+import NavigationBar from "./components/navigationBar.vue";
 
 export default {
   components: { NavigationBar },
@@ -13,7 +13,7 @@ export default {
 </script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

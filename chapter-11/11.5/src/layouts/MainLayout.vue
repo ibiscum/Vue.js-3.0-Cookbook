@@ -12,22 +12,16 @@
           <q-icon name="menu" />
         </q-btn>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-toolbar-title> Quasar App </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-2"
-    >
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
       <q-list>
         <q-item-label header>Menu</q-item-label>
-        <q-item clickable tag="a" :to="{name: 'home'}">
+        <q-item clickable tag="a" :to="{ name: 'home' }">
           <q-item-section avatar>
             <q-icon name="home" />
           </q-item-section>
@@ -35,7 +29,7 @@
             <q-item-label>Home</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" :to="{name: 'about'}">
+        <q-item clickable tag="a" :to="{ name: 'about' }">
           <q-item-section avatar>
             <q-icon name="school" />
           </q-item-section>
@@ -53,9 +47,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'MyLayout',
+  name: "MyLayout",
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
@@ -64,5 +57,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

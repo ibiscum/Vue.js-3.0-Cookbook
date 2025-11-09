@@ -1,13 +1,13 @@
 export default {
   watch: {
-    myField: 'myFunction',
+    myField: "myFunction",
   },
   data: () => ({
-    myField: '',
+    myField: "",
   }),
   methods: {
     myFunction() {
-      console.log('Watcher Using Method Name');
+      console.log("Watcher Using Method Name");
     },
   },
 };

@@ -5,52 +5,38 @@
     stripe
     pagination
     max-items="10"
-    style="width: 100%; padding: 20px;"
+    style="width: 100%; padding: 20px"
   >
     <template slot="thead">
-      <vs-th sort-key="name">
-        #
-      </vs-th>
-      <vs-th sort-key="name">
-        Name
-      </vs-th>
-      <vs-th sort-key="email">
-        Email
-      </vs-th>
-      <vs-th sort-key="country">
-        Country
-      </vs-th>
-      <vs-th sort-key="phone">
-        Phone
-      </vs-th>
-      <vs-th sort-key="Birthday">
-        Birthday
-      </vs-th>
-      <vs-th>
-        Actions
-      </vs-th>
+      <vs-th sort-key="name"> # </vs-th>
+      <vs-th sort-key="name"> Name </vs-th>
+      <vs-th sort-key="email"> Email </vs-th>
+      <vs-th sort-key="country"> Country </vs-th>
+      <vs-th sort-key="phone"> Phone </vs-th>
+      <vs-th sort-key="Birthday"> Birthday </vs-th>
+      <vs-th> Actions </vs-th>
     </template>
-    <template slot-scope="{data}">
+    <template slot-scope="{ data }">
       <vs-tr :key="index" v-for="(tr, index) in data">
         <vs-td :data="data[index].id">
-          {{data[index].id}}
+          {{ data[index].id }}
         </vs-td>
         <vs-td :data="data[index].name">
-          {{data[index].name}}
+          {{ data[index].name }}
         </vs-td>
         <vs-td :data="data[index].email">
           <a :href="`mailto:${data[index].email}`">
-            {{data[index].email}}
+            {{ data[index].email }}
           </a>
         </vs-td>
         <vs-td :data="data[index].country">
-          {{data[index].country}}
+          {{ data[index].country }}
         </vs-td>
         <vs-td :data="data[index].phone">
-          {{data[index].phone}}
+          {{ data[index].phone }}
         </vs-td>
         <vs-td :data="data[index].birthday">
-          {{data[index].birthday}}
+          {{ data[index].birthday }}
         </vs-td>
         <vs-td :data="data[index].id">
           <vs-button
@@ -80,15 +66,15 @@
   </vs-table>
 </template>
 <script>
-  import changeRouteMixin from '@/mixin/changeRoute';
+import changeRouteMixin from "@/mixin/changeRoute";
 
-  export default {
-    name: 'UserTableList',
-    mixins: [changeRouteMixin],
-    computed: {
-      userList() {
-        return this.$store.getters.getUsersList;
-      },
+export default {
+  name: "UserTableList",
+  mixins: [changeRouteMixin],
+  computed: {
+    userList() {
+      return this.$store.getters.getUsersList;
     },
-  }
+  },
+};
 </script>

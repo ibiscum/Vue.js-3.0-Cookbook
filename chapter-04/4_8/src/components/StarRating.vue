@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import StarRatingInput from './StarRatingInput.vue';
-import StarRatingDisplay from './StarRatingDisplay.vue';
-import StarRatingDisplayMixin from '../mixins/starRatingDisplay';
+import StarRatingInput from "./StarRatingInput.vue";
+import StarRatingDisplay from "./StarRatingDisplay.vue";
+import StarRatingDisplayMixin from "../mixins/starRatingDisplay";
 
 export default {
-  name: 'StarRating',
+  name: "StarRating",
   components: { StarRatingDisplay, StarRatingInput },
   mixins: [StarRatingDisplayMixin],
   provide: {

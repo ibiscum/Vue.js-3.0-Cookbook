@@ -1,26 +1,12 @@
 <template>
   <div class="container">
-    <vs-row
-      vs-align="center"
-      vs-justify="center"
-    >
-      <vs-col
-        vs-lg="4"
-        vs-sm="6"
-        vs-xs="10"
-      >
-        <vs-card
-          style="margin: 20px;"
-        >
+    <vs-row vs-align="center" vs-justify="center">
+      <vs-col vs-lg="4" vs-sm="6" vs-xs="10">
+        <vs-card style="margin: 20px">
           <template slot="header">
-            <h3>
-              User Login
-            </h3>
+            <h3>User Login</h3>
           </template>
-          <vs-row
-            vs-align="center"
-            vs-justify="center"
-          >
+          <vs-row vs-align="center" vs-justify="center">
             <vs-col vs-w="12">
               <vs-input
                 :danger="error"
@@ -60,41 +46,43 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'Login',
-    data: () => ({
-      username: '',
-      password: '',
-      error: false,
-    }),
-    methods: {
-      userSignIn() {
-        if (this.username && this.password) {
-          window.sessionStorage.setItem('auth',
-            window.btoa(JSON.stringify({
-                username: this.username
-              })
-            )
-          );
-          this.error = false;
-          this.$router.replace('/user');
-        }
-        this.error = true;
-        return false;
-      },
-    }
-  };
+export default {
+  name: "Login",
+  data: () => ({
+    username: "",
+    password: "",
+    error: false,
+  }),
+  methods: {
+    userSignIn() {
+      if (this.username && this.password) {
+        window.sessionStorage.setItem(
+          "auth",
+          window.btoa(
+            JSON.stringify({
+              username: this.username,
+            }),
+          ),
+        );
+        this.error = false;
+        this.$router.replace("/user");
+      }
+      this.error = true;
+      return false;
+    },
+  },
+};
 </script>
 <style scoped>
-  .container {
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-  }
+.container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
 
-  .vs-input {
-    margin: 5px;
-  }
+.vs-input {
+  margin: 5px;
+}
 </style>

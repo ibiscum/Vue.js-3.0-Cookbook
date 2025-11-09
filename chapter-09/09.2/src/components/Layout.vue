@@ -1,22 +1,18 @@
 <template>
   <v-app>
-    <top-bar
-      @open-drawer="drawer = !drawer"
-    />
-    <drawer-menu
-      v-model="drawer"
-    />
+    <top-bar @open-drawer="drawer = !drawer" />
+    <drawer-menu v-model="drawer" />
     <v-content>
-      <slot/>
+      <slot />
     </v-content>
   </v-app>
 </template>
 <script>
-import TopBar from './TopBar.vue';
-import DrawerMenu from './DrawerMenu.vue';
+import TopBar from "./TopBar.vue";
+import DrawerMenu from "./DrawerMenu.vue";
 
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
     DrawerMenu,
     TopBar,

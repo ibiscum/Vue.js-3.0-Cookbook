@@ -1,4 +1,5 @@
 ### Chapter 2
+
 # Introducing TypeScript and the Vue Ecosystem
 
 - [Creating a TypeScript project](./2_1)

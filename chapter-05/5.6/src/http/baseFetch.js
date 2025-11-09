@@ -1,9 +1,5 @@
-import axios from 'axios';
-import {
-  errorInterceptor,
-  requestInterceptor,
-  responseInterceptor,
-} from './interceptors';
+import axios from "axios";
+import { errorInterceptor, requestInterceptor, responseInterceptor } from "./interceptors";
 
 export function createAxios(options = {}) {
   return axios.create({
@@ -13,24 +9,21 @@ export function createAxios(options = {}) {
 
 const localApi = createAxios();
 
-localApi.interceptors
-  .request.use(requestInterceptor, errorInterceptor);
+localApi.interceptors.request.use(requestInterceptor, errorInterceptor);
 
-localApi.interceptors
-  .response.use(responseInterceptor, errorInterceptor);
+localApi.interceptors.response.use(responseInterceptor, errorInterceptor);
 
 export const jsonPlaceholderApi = createAxios({
-  baseURL: 'https://jsonplaceholder.typicode.com/',
+  baseURL: "https://jsonplaceholder.typicode.com/",
 });
 
-jsonPlaceholderApi.interceptors
-  .request.use(requestInterceptor, errorInterceptor);
+jsonPlaceholderApi.interceptors.request.use(requestInterceptor, errorInterceptor);
 
-jsonPlaceholderApi.interceptors
-  .response.use(responseInterceptor, errorInterceptor);
+jsonPlaceholderApi.interceptors.response.use(responseInterceptor, errorInterceptor);
 
-export default async (url, method, options = {}) => localApi({
-  method: method.toUpperCase(),
-  url,
-  ...options,
-});
+export default async (url, method, options = {}) =>
+  localApi({
+    method: method.toUpperCase(),
+    url,
+    ...options,
+  });

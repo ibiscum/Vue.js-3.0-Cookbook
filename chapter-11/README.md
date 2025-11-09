@@ -1,13 +1,15 @@
 # Chapter 11 - Requirements
 
-In this chapter we will be using __Node__, __Vue-CLI__, __Cordova__, __Electron__, __Quasar__, __Nuxt.JS__ and __Python__.
+In this chapter we will be using **Node**, **Vue-CLI**, **Cordova**, **Electron**, **Quasar**, **Nuxt.JS** and **Python**.
 
-> Attention Windows Users, you are required to install a NPM package called windows-build-tools, to be able to install the following required packages. To do it, open the Power Shell as Administrador and Execute the following command: 
+> Attention Windows Users, you are required to install a NPM package called windows-build-tools, to be able to install the following required packages. To do it, open the Power Shell as Administrador and Execute the following command:
+
 ```bash
 $ npm install -g windows-build-tools
 ```
 
 To install Vue-CLI you need to execute on Terminal (MacOS or Linux) or the Command Prompt / Power Shell (Windows)
+
 ```bash
 $ npm install -g @vue/cli @vue/cli-service-global
 ```
@@ -23,6 +25,7 @@ $ npm install -g ios-sim ios-deploy
 ```
 
 To install Electron you need to execute on the Terminal (MacOS or Linux) or the Command Prompt / Power Shell (Windows)
+
 ```bash
 $ npm install -g electron
 ```

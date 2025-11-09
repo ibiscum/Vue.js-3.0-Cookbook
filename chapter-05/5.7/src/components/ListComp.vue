@@ -1,55 +1,29 @@
 <template>
-  <vs-card
-    style="margin: 20px;"
-  >
+  <vs-card style="margin: 20px">
     <template #header>
-      <h3>
-        Users
-      </h3>
+      <h3>Users</h3>
     </template>
     <vs-row>
-      <vs-col
-        vs-type="flex"
-        vs-justify="left"
-        vs-align="left"
-        vs-w="12"
-      >
+      <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
         <vs-table
           :data="userList"
           search
           stripe
           pagination
           max-items="10"
-          style="width: 100%; padding: 20px;"
+          style="width: 100%; padding: 20px"
         >
           <template #thead>
-            <vs-th sort-key="id">
-              #
-            </vs-th>
-            <vs-th sort-key="name">
-              Name
-            </vs-th>
-            <vs-th sort-key="email">
-              Email
-            </vs-th>
-            <vs-th sort-key="country">
-              Country
-            </vs-th>
-            <vs-th sort-key="phone">
-              Phone
-            </vs-th>
-            <vs-th sort-key="Birthday">
-              Birthday
-            </vs-th>
-            <vs-th>
-              Actions
-            </vs-th>
+            <vs-th sort-key="id"> # </vs-th>
+            <vs-th sort-key="name"> Name </vs-th>
+            <vs-th sort-key="email"> Email </vs-th>
+            <vs-th sort-key="country"> Country </vs-th>
+            <vs-th sort-key="phone"> Phone </vs-th>
+            <vs-th sort-key="Birthday"> Birthday </vs-th>
+            <vs-th> Actions </vs-th>
           </template>
-          <template #default="{data}">
-            <vs-tr
-              v-for="(tr, index) in data"
-              :key="index"
-            >
+          <template #default="{ data }">
+            <vs-tr v-for="(tr, index) in data" :key="index">
               <vs-td :data="data[index].id">
                 {{ data[index].id }}
               </vs-td>
@@ -114,35 +88,32 @@
   </vs-card>
 </template>
 <script>
-  import {
-    getHttp,
-    deleteHttp,
-  } from '../http/fetchApi';
-  import changeComponent from '../mixin/changeComponent';
+import { getHttp, deleteHttp } from "../http/fetchApi";
+import changeComponent from "../mixin/changeComponent";
 
-  export default {
-    name: 'ListComp',
-    mixins: [changeComponent],
-    data: () => ({
-      userList: [],
-    }),
-    async beforeMount() {
+export default {
+  name: "ListComp",
+  mixins: [changeComponent],
+  data: () => ({
+    userList: [],
+  }),
+  async beforeMount() {
+    await this.getAllUsers();
+  },
+  methods: {
+    async getAllUsers() {
+      const { data } = await getHttp(`${window.location.href}api/users`);
+      this.userList = data;
+    },
+    async deleteUser(id) {
+      await deleteHttp(`${window.location.href}api/users/${id}`);
       await this.getAllUsers();
     },
-    methods: {
-      async getAllUsers() {
-        const { data } = await getHttp(`${window.location.href}api/users`);
-        this.userList = data;
-      },
-      async deleteUser(id) {
-        await deleteHttp(`${window.location.href}api/users/${id}`);
-        await this.getAllUsers();
-      },
-    }
-  };
+  },
+};
 </script>
 <style scoped>
-  .vs-button {
-    margin-left: 5px;
-  }
+.vs-button {
+  margin-left: 5px;
+}
 </style>

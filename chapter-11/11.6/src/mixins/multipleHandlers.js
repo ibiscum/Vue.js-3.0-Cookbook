@@ -1,26 +1,26 @@
 export default {
   watch: {
     myMultiField: [
-      'myFunction',
+      "myFunction",
       {
         handler(newVal, oldVal) {
-          console.log('Using Immediate Call, and Deep Watch');
-          console.log('New Value', newVal);
-          console.log('Old Value', oldVal);
+          console.log("Using Immediate Call, and Deep Watch");
+          console.log("New Value", newVal);
+          console.log("Old Value", oldVal);
         },
         immediate: true,
       },
     ],
   },
   beforeMount() {
-    this.myMultiField = 'Foo Bar';
+    this.myMultiField = "Foo Bar";
   },
   data: () => ({
-    myMultiField: '',
+    myMultiField: "",
   }),
   methods: {
     myFunction() {
-      console.log('Watcher Using Method Name');
+      console.log("Watcher Using Method Name");
     },
   },
 };

@@ -1,7 +1,7 @@
 const generateState = () => ({
   data: {
-    username: '',
-    token: '',
+    username: "",
+    token: "",
     expiresAt: null,
   },
   loading: false,

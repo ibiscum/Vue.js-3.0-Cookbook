@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import CurrentTime from './components/CurrentTime.vue';
+import CurrentTime from "./components/CurrentTime.vue";
 
 export default {
-  name: 'TodoApp',
+  name: "TodoApp",
   components: {
     CurrentTime,
   },

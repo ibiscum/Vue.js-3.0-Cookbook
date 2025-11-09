@@ -8,50 +8,27 @@
           <h2>My Tasks</h2>
           <hr />
           <div class="col-4">
-            <input
-              v-model="hideDone"
-              type="checkbox"
-              id="hideDone"
-              name="hideDone"
-            />
-            <label for="hideDone">
-              Hide Done Tasks
-            </label>
+            <input v-model="hideDone" type="checkbox" id="hideDone" name="hideDone" />
+            <label for="hideDone"> Hide Done Tasks </label>
           </div>
           <div class="col-4">
-            <input
-              v-model="reverse"
-              type="checkbox"
-              id="reverse"
-              name="reverse"
-            />
-            <label for="reverse">
-              Reverse Order
-            </label>
+            <input v-model="reverse" type="checkbox" id="reverse" name="reverse" />
+            <label for="reverse"> Reverse Order </label>
           </div>
           <div class="col-4">
-            <input
-              v-model="sortById"
-              type="checkbox"
-              id="sortById"
-              name="sortById"
-            />
-            <label for="sortById">
-              Sort By Id
-            </label>
+            <input v-model="sortById" type="checkbox" id="sortById" name="sortById" />
+            <label for="sortById"> Sort By Id </label>
           </div>
           <ul class="taskList">
-            <li
-              v-for="(taskItem, index) in displayList"
-              :key="`${index}_${Math.random()}`"
-            >
-              <input type="checkbox"
-                     :checked="!!taskItem.finishedAt"
-                     @input="changeStatus(taskItem.id)"
+            <li v-for="(taskItem, index) in displayList" :key="`${index}_${Math.random()}`">
+              <input
+                type="checkbox"
+                :checked="!!taskItem.finishedAt"
+                @input="changeStatus(taskItem.id)"
               />
               #{{ taskItem.id }} - {{ taskItem.task }}
-              <span v-if="taskItem.finishedAt"> |
-                Done at:
+              <span v-if="taskItem.finishedAt">
+                | Done at:
                 {{ formatDate(taskItem.finishedAt) }}
               </span>
             </li>
@@ -62,11 +39,11 @@
   </div>
 </template>
 <script>
-import CurrentTime from './components/CurrentTime.vue';
-import TaskInput from './components/TaskInput.vue';
+import CurrentTime from "./components/CurrentTime.vue";
+import TaskInput from "./components/TaskInput.vue";
 
 export default {
-  name: 'TodoApp',
+  name: "TodoApp",
   components: {
     CurrentTime,
     TaskInput,
@@ -79,48 +56,40 @@ export default {
   }),
   computed: {
     baseList() {
-      return [...this.taskList]
-        .map((t, index) => ({
-          ...t,
-          id: index + 1,
-        }));
+      return [...this.taskList].map((t, index) => ({
+        ...t,
+        id: index + 1,
+      }));
     },
     filteredList() {
-      return this.hideDone
-        ? [...this.baseList]
-          .filter((t) => !t.finishedAt)
-        : [...this.baseList];
+      return this.hideDone ? [...this.baseList].filter((t) => !t.finishedAt) : [...this.baseList];
     },
     sortedList() {
-      return [...this.filteredList]
-        .sort((a, b) => (
-          this.sortById
-            ? b.id - a.id
-            : ((a.finishedAt || 0) - (b.finishedAt) || 0)
-        ));
+      return [...this.filteredList].sort((a, b) =>
+        this.sortById ? b.id - a.id : (a.finishedAt || 0) - b.finishedAt || 0,
+      );
     },
     displayList() {
       const taskList = [...this.sortedList];
 
-      return this.reverse
-        ? taskList.reverse()
-        : taskList;
+      return this.reverse ? taskList.reverse() : taskList;
     },
   },
   methods: {
     formatDate(value) {
-      if (!value) return '';
-      if (typeof value !== 'number') return value;
+      if (!value) return "";
+      if (typeof value !== "number") return value;
 
-      const browserLocale = navigator.languages && navigator.languages.length
-        ? navigator.languages[0]
-        : navigator.language;
+      const browserLocale =
+        navigator.languages && navigator.languages.length
+          ? navigator.languages[0]
+          : navigator.language;
       const intlDateTime = new Intl.DateTimeFormat(browserLocale, {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
       });
 
       return intlDateTime.format(new Date(value));

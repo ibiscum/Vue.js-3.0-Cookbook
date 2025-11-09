@@ -20,15 +20,12 @@
 </template>
 
 <script>
-import StarRatingBaseMixin from '../mixins/starRatingBase';
-import StarRatingChildMixin from '../mixins/starRatingChild';
+import StarRatingBaseMixin from "../mixins/starRatingBase";
+import StarRatingChildMixin from "../mixins/starRatingChild";
 
 export default {
-  name: 'StartRatingInput',
-  mixins: [
-    StarRatingBaseMixin,
-    StarRatingChildMixin,
-  ],
+  name: "StartRatingInput",
+  mixins: [StarRatingBaseMixin, StarRatingChildMixin],
   data: () => ({
     rank: 0,
   }),
@@ -38,40 +35,40 @@ export default {
     },
     emitFinalVote(value) {
       this.updateRating(value);
-      this.$emit('final-vote', this.rank);
+      this.$emit("final-vote", this.rank);
     },
     getStarName(rate) {
-      const rating = (this.rating || this.rank);
+      const rating = this.rating || this.rank;
       if (rate <= rating) {
-        return 'star';
+        return "star";
       }
-      if (Math.fround((rate - rating)) < 1) {
-        return 'star_half';
+      if (Math.fround(rate - rating) < 1) {
+        return "star_half";
       }
-      return 'star_border';
+      return "star_border";
     },
   },
 };
 </script>
 
 <style scoped>
-  @import '../style/starRating.css';
+@import "../style/starRating.css";
 
-  .starRating {
-    justify-content: space-between;
-  }
+.starRating {
+  justify-content: space-between;
+}
 
-  .starRating * {
-    line-height: 1.7rem;
-  }
+.starRating * {
+  line-height: 1.7rem;
+}
 
-  .starRating .material-icons {
-    font-size: 1.6rem !important;
-  }
+.starRating .material-icons {
+  font-size: 1.6rem !important;
+}
 
-  .rateThis {
-    display: inline-block;
-    color: rgba(0, 0, 0, .65);
-    font-size: 1rem;
-  }
+.rateThis {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 1rem;
+}
 </style>

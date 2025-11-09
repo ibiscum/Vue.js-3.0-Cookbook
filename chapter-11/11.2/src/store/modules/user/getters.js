@@ -1,4 +1,4 @@
-export const getUserName = state => state.name;
+export const getUserName = (state) => state.name;
 
 export default {
   getUserName,

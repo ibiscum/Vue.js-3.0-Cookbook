@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import StarRatingInput from './StarRatingInput.vue';
-import StarRatingDisplay from './StarRatingDisplay.vue';
+import StarRatingInput from "./StarRatingInput.vue";
+import StarRatingDisplay from "./StarRatingDisplay.vue";
 
 export default {
-  name: 'StarRating',
+  name: "StarRating",
   components: { StarRatingDisplay, StarRatingInput },
   props: {
     maxRating: {

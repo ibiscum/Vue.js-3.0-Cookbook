@@ -1,30 +1,13 @@
 <template>
   <vs-row>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="12">
-      <vs-card
-        style="margin: 20px;"
-      >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
+      <vs-card style="margin: 20px">
         <div slot="header">
-          <h3>
-            View User
-          </h3>
+          <h3>View User</h3>
         </div>
         <vs-row>
-          <vs-col
-            vs-type="flex"
-            vs-justify="left"
-            vs-align="left"
-            vs-w="12"
-            style="margin: 20px"
-          >
-            <user-form
-              :value="userData"
-              disabled
-            />
+          <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12" style="margin: 20px">
+            <user-form :value="userData" disabled />
           </vs-col>
         </vs-row>
         <div slot="footer">
@@ -56,30 +39,30 @@
   </vs-row>
 </template>
 <script>
-  import UserForm from '@/components/userForm';
-  import changeRouteMixin from '@/mixin/changeRoute';
+import UserForm from "@/components/userForm";
+import changeRouteMixin from "@/mixin/changeRoute";
 
-  export default {
-    name: 'ViewUser',
-    mixins: [changeRouteMixin],
-    components: {
-      UserForm,
+export default {
+  name: "ViewUser",
+  mixins: [changeRouteMixin],
+  components: {
+    UserForm,
+  },
+  async beforeMount() {
+    await this.getUserById();
+  },
+  computed: {
+    userId() {
+      return this.$route.params.id;
     },
-    async beforeMount() {
-      await this.getUserById();
+    userData() {
+      return this.$store.getters.getUserData;
     },
-    computed: {
-      userId() {
-        return this.$route.params.id;
-      },
-      userData() {
-        return this.$store.getters.getUserData;
-      },
+  },
+  methods: {
+    async getUserById() {
+      await this.$store.dispatch("fetchUserData", this.userId);
     },
-    methods: {
-      async getUserById() {
-        await this.$store.dispatch('fetchUserData', this.userId);
-      },
-    }
-  };
+  },
+};
 </script>

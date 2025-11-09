@@ -1,10 +1,10 @@
 export default {
   users: [
     {
-      name: 'Heitor Ramon Ribeiro',
-      email: 'heitor@example.com',
+      name: "Heitor Ramon Ribeiro",
+      email: "heitor@example.com",
       age: 31,
-      country: 'Brazil',
+      country: "Brazil",
       active: true,
     },
   ],

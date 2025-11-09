@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
@@ -17,10 +17,10 @@ export default new Vuex.Store({
   },
   actions: {
     increment({ commit }) {
-      commit('increment');
+      commit("increment");
     },
     decrement({ commit }) {
-      commit('decrement');
+      commit("decrement");
     },
   },
 });

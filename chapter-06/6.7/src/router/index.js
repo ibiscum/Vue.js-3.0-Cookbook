@@ -1,26 +1,26 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import UserRoutes from './user';
-import NotFound from '@/views/NotFound';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import UserRoutes from "./user";
+import NotFound from "@/views/NotFound";
 
 Vue.use(VueRouter);
 
 const routes = [
   ...UserRoutes,
   {
-    path: '/',
-    redirect: '/user'
+    path: "/",
+    redirect: "/user",
   },
   {
-    path: '*',
+    path: "*",
     component: NotFound,
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

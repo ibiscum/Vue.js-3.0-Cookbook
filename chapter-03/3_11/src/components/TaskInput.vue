@@ -1,36 +1,36 @@
 <template>
-  <div class='cardBox'>
-    <div class='container tasker'>
+  <div class="cardBox">
+    <div class="container tasker">
       <strong>My task is:</strong>
       <input
-        type='text'
-        :value='task'
-        @input='task = $event.target.value'
-        class='taskInput'
+        type="text"
+        :value="task"
+        @input="task = $event.target.value"
+        class="taskInput"
         :class="$v.task.$error ? 'fieldError' : ''"
       />
-      <button v-on:click='addTask'>Add Task</button>
+      <button v-on:click="addTask">Add Task</button>
     </div>
   </div>
 </template>
 <script>
-import { required, minLength } from '@vuelidate/validators';
+import { required, minLength } from "@vuelidate/validators";
 
 export default {
-  name: 'TaskInput',
+  name: "TaskInput",
   data: () => ({
-    task: '',
+    task: "",
   }),
-  emits: ['add-task'],
+  emits: ["add-task"],
   methods: {
     addTask() {
       this.$v.$touch();
 
       if (this.$v.$error) return false;
 
-      this.$emit('add-task', this.task);
+      this.$emit("add-task", this.task);
 
-      this.task = '';
+      this.task = "";
 
       this.$v.$reset();
       return true;
@@ -47,7 +47,7 @@ export default {
 };
 </script>
 <style scoped>
-.tasker{
+.tasker {
   margin: 20px;
 }
 .tasker .taskInput {

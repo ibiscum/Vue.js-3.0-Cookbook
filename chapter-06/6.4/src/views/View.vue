@@ -1,30 +1,13 @@
 <template>
   <vs-row>
-    <vs-col
-      vs-type="flex"
-      vs-justify="left"
-      vs-align="left"
-      vs-w="12">
-      <vs-card
-        style="margin: 20px;"
-      >
+    <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12">
+      <vs-card style="margin: 20px">
         <div slot="header">
-          <h3>
-            View User
-          </h3>
+          <h3>View User</h3>
         </div>
         <vs-row>
-          <vs-col
-            vs-type="flex"
-            vs-justify="left"
-            vs-align="left"
-            vs-w="12"
-            style="margin: 20px"
-          >
-            <user-form
-              v-model="userData"
-              disabled
-            />
+          <vs-col vs-type="flex" vs-justify="left" vs-align="left" vs-w="12" style="margin: 20px">
+            <user-form v-model="userData" disabled />
           </vs-col>
         </vs-row>
         <div slot="footer">
@@ -56,40 +39,38 @@
   </vs-row>
 </template>
 <script>
-  import {
-    getHttp,
-  } from '@/http/fetchApi';
-  import UserForm from '@/components/userForm';
-  import changeRouteMixin from '../mixin/changeRoute';
+import { getHttp } from "@/http/fetchApi";
+import UserForm from "@/components/userForm";
+import changeRouteMixin from "../mixin/changeRoute";
 
-  export default {
-    name: 'ViewUser',
-    mixins: [changeRouteMixin],
-    components: {
-      UserForm,
+export default {
+  name: "ViewUser",
+  mixins: [changeRouteMixin],
+  components: {
+    UserForm,
+  },
+  data: () => ({
+    userData: {
+      name: "",
+      email: "",
+      birthday: "",
+      country: "",
+      phone: "",
     },
-    data: () => ({
-      userData: {
-        name: '',
-        email: '',
-        birthday: '',
-        country: '',
-        phone: '',
-      },
-    }),
-    async beforeMount() {
-      await this.getUserById();
+  }),
+  async beforeMount() {
+    await this.getUserById();
+  },
+  computed: {
+    userId() {
+      return this.$route.params.id;
     },
-    computed: {
-      userId() {
-        return this.$route.params.id;
-      },
+  },
+  methods: {
+    async getUserById() {
+      const { data } = await getHttp(`api/users/${this.userId}`);
+      this.userData = data;
     },
-    methods: {
-      async getUserById() {
-        const { data } = await getHttp(`api/users/${this.userId}`);
-        this.userData = data;
-      },
-    }
-  };
+  },
+};
 </script>
