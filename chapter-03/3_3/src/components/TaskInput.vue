@@ -2,18 +2,24 @@
   <div class="cardBox">
     <div class="container tasker">
       <strong>My task is:</strong>
-      <input type="text" v-model="task" class="taskInput" />
-      <button v-on:click="addTask">Add Task</button>
+      <input
+        v-model="task"
+        type="text"
+        class="taskInput"
+      >
+      <button @click="addTask">
+        Add Task
+      </button>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "TaskInput",
+  emits: ["add-task"],
   data: () => ({
     task: "",
   }),
-  emits: ["add-task"],
   methods: {
     addTask() {
       this.$emit("add-task", this.task);
