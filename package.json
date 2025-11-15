@@ -22,7 +22,10 @@
     "chapter-03/3_9",
     "chapter-03/3_10",
     "chapter-03/3_11",
-    "chapter-04/4_1"
+    "chapter-04/4_1",
+    "chapter-04/4_2",
+    "chapter-04/4_3",
+    "chapter-04/4_4"
   ],
   "devDependencies": {
     "prettier": "3.6.2"
