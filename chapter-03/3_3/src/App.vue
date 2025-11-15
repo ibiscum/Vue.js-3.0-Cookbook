@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <current-time class="col-4" />
-    <task-input
-      class="col-6"
-      @add-task="addNewTask"
-    />
+    <task-input class="col-6" @add-task="addNewTask" />
   </div>
 </template>
 
