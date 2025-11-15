@@ -14,7 +14,9 @@
     "chapter-02/2_7",
     "chapter-03/3_1",
     "chapter-03/3_2",
-    "chapter-03/3_3"
+    "chapter-03/3_3",
+    "chapter-03/3_4"
+
   ],
   "devDependencies": {
     "prettier": "3.6.2"
