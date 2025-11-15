@@ -13,10 +13,15 @@
     </div>
   </div>
 </template>
+
 <script>
 import { required, minLength } from "@vuelidate/validators";
+import { useVuelidate } from '@vuelidate/core'
 
 export default {
+  setup () {
+    return { v$: useVuelidate() }
+  },
   name: "TaskInput",
   data: () => ({
     task: "",
@@ -46,6 +51,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .tasker {
   margin: 20px;
