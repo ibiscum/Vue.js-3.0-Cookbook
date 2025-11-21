@@ -22,7 +22,10 @@
     "chapter-03/3_11",
     "chapter-04/4_1",
     "chapter-04/4_2",
-    "chapter-09/9_1"
+    "chapter-09/9_1",
+    "chapter-09/9_2",
+    "chapter-09/9_3"
+
 
   ],
   "devDependencies": {
