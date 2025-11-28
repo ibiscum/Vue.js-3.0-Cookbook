@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "serve": "vite",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint --fix"
   },
@@ -12,23 +12,19 @@
     "vue": "^3.5.25"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.2",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.6.1",
-    "lint-staged": "^16.2.7",
-    "stylelint": "^16.26.0",
-    "stylelint-config-standard": "^39.0.1",
+    "lint-staged": "^16.2.6",
     "stylus": "^0.64.0",
     "stylus-loader": "^8.1.2",
-    "typescript": "^5.9.3",
-    "vite": "^7.2.4"
+    "typescript": "^5.9.3"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --fix",
+      "vue-cli-service lint",
       "git add"
     ]
   }
