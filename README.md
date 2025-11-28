@@ -1,5 +1,8 @@
 # Vue.js 3 Cookbook
 
+[![CodeQL Advanced](https://github.com/ibiscum/Vue.js-3-Cookbook/actions/workflows/codeql.yml/badge.svg)](https://github.com/ibiscum/Vue.js-3-Cookbook/actions/workflows/codeql.yml)
+[![Dependabot Updates](https://github.com/ibiscum/Vue.js-3-Cookbook/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/ibiscum/Vue.js-3-Cookbook/actions/workflows/dependabot/dependabot-updates)
+
 <a href="https://amzn.to/2LlqMUU"><img src="https://static.packt-cdn.com/products/9781838826222/cover/smaller" alt="Vue.js 3 Cookbook" height="256px" align="right"></a>
 
 This is the code repository for [Vue.js 3 Cookbook](https://amzn.to/2LlqMUU), published by Packt.
