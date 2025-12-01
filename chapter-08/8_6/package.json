@@ -16,7 +16,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.5.1",
     "lint-staged": "^16.2.6",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1",
     "stylus": "^0.64.0",
     "stylus-loader": "^8.1.2",
